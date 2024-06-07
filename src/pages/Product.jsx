@@ -18,15 +18,13 @@ function Product() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios(`${apiUrl}/products/${id}`);
-        setProduct(response.data);
+        const productResponse = await axios.get(`${apiUrl}/products/${id}`);
+        setProduct(productResponse.data);
 
-        // Verificar si el producto ya ha sido "liked"
-        const likedResponse = await axios.get(`${apiUrl}/users/liked-products`, {
+        const likedResponse = await axios.get(`${apiUrl}/products/${id}/liked`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
-        const likedProducts = likedResponse.data;
-        setLiked(likedProducts.some(p => p.id === id));
+        setLiked(likedResponse.data.liked);
       } catch (error) {
         console.error('Error al obtener el producto:', error);
       } finally {
