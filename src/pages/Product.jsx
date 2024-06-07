@@ -12,6 +12,7 @@ function Product() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [liked, setLiked] = useState(false);
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
@@ -19,6 +20,13 @@ function Product() {
       try {
         const response = await axios(`${apiUrl}/products/${id}`);
         setProduct(response.data);
+
+        // Verificar si el producto ya ha sido "liked"
+        const likedResponse = await axios.get(`${apiUrl}/users/liked-products`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        });
+        const likedProducts = likedResponse.data;
+        setLiked(likedProducts.some(p => p.id === id));
       } catch (error) {
         console.error('Error al obtener el producto:', error);
       } finally {
@@ -28,6 +36,32 @@ function Product() {
 
     fetchProduct();
   }, [id]);
+
+  const handleLike = async () => {
+    try {
+      await axios.post(`${apiUrl}/products/${id}/like`, {}, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      setLiked(true);
+    } catch (error) {
+      console.error('Error al dar like:', error);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axios.post(`${apiUrl}/products/${id}/unlike`, {}, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      setLiked(false);
+    } catch (error) {
+      console.error('Error al quitar like:', error);
+    }
+  };
 
   if (loading) {
     return <div className="text-center py-10">Cargando...</div>;
@@ -93,9 +127,14 @@ function Product() {
               >
                 Añadir al Carrito
               </Button>
-              <Button className="flex items-center bg-pink-200 px-4 py-2 rounded-md shadow-md hover:bg-pink-300 transition duration-300">
+              <Button
+                className="flex items-center bg-pink-200 px-4 py-2 rounded-md shadow-md hover:bg-pink-300 transition duration-300"
+                onClick={liked ? handleUnlike : handleLike}
+              >
                 <img src={like_icon} alt="Like Icon" className="h-5 w-5 mr-1" />
-                <span className="font-semibold text-pink-500">Like</span>
+                <span className="font-semibold text-pink-500">
+                  {liked ? 'Unlike' : 'Like'}
+                </span>
               </Button>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg">
