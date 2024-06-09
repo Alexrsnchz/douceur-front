@@ -85,6 +85,9 @@ function Footer() {
                 className={({ isActive }) =>
                   isActive ? 'text-[#d4a373]' : 'hover:text-[#d4a373]'
                 }
+                onClick={() => {
+                  window.scroll(0, 0);
+                }}
               >
                 Inicio
               </NavLink>
@@ -95,6 +98,9 @@ function Footer() {
                 className={({ isActive }) =>
                   isActive ? 'text-[#d4a373]' : 'hover:text-[#d4a373]'
                 }
+                onClick={() => {
+                  window.scroll(0, 0);
+                }}
               >
                 Productos
               </NavLink>
@@ -105,6 +111,9 @@ function Footer() {
                 className={({ isActive }) =>
                   isActive ? 'text-[#d4a373]' : 'hover:text-[#d4a373]'
                 }
+                onClick={() => {
+                  window.scroll(0, 0);
+                }}
               >
                 Blog
               </NavLink>
@@ -115,6 +124,9 @@ function Footer() {
                 className={({ isActive }) =>
                   isActive ? 'text-[#d4a373]' : 'hover:text-[#d4a373]'
                 }
+                onClick={() => {
+                  window.scroll(0, 0);
+                }}
               >
                 Servicios
               </NavLink>
@@ -125,6 +137,9 @@ function Footer() {
                 className={({ isActive }) =>
                   isActive ? 'text-[#d4a373]' : 'hover:text-[#d4a373]'
                 }
+                onClick={() => {
+                  window.scroll(0, 0);
+                }}
               >
                 FAQ
               </NavLink>
@@ -135,6 +150,9 @@ function Footer() {
                 className={({ isActive }) =>
                   isActive ? 'text-[#d4a373]' : 'hover:text-[#d4a373]'
                 }
+                onClick={() => {
+                  window.scroll(0, 0);
+                }}
               >
                 Contacto
               </NavLink>
@@ -148,11 +166,21 @@ function Footer() {
             &copy; 2024 Douceur. Todos los derechos reservados.
           </p>
           <p className="text-center">
-            <Link to="/privacidad" className="mr-2 hover:text-[#d4a373]">
+            <Link to="/privacidad" 
+              className="mr-2 hover:text-[#d4a373]" 
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+            >
               Política de privacidad
             </Link>
             |
-            <Link to="/terminos" className="ml-2 hover:text-[#d4a373]">
+            <Link to="/terminos" 
+              className="ml-2 hover:text-[#d4a373]"
+              onClick={() => {
+                window.scroll(0, 0);
+              }}
+            >
               Términos de uso
             </Link>
           </p>
