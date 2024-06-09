@@ -38,7 +38,7 @@ const PaymentForm = () => {
           amount: totalAmount,
         },
         {
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
         },
       );
 
