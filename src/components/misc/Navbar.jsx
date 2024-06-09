@@ -28,7 +28,7 @@ function Navbar() {
   };
 
   const handleLogout = () => {
-    logout;
+    logout();
     navigate('/');
   }
 
