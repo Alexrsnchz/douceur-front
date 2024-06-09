@@ -55,9 +55,6 @@ function Navbar() {
               <>
                 <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem as={NavLink} to="/profile">
-                  Perfil
-                </DropdownMenuItem>
                 <DropdownMenuItem onClick={logout} className="cursor-pointer">
                   Cerrar sesión
                 </DropdownMenuItem>
