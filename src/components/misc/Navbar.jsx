@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import AuthContext from '@/context/AuthContext.jsx';
 import { CartContext } from '@/context/CartContext';
 import CartDropdown from '@/components/misc/CartDropdown.jsx';
@@ -21,10 +21,16 @@ function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { isLoggedIn, logout } = useContext(AuthContext);
   const { cart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
   };
+
+  const handleLogout = () => {
+    logout;
+    navigate('/');
+  }
 
   return (
     <nav className="bg-white-50 p-4 flex items-center justify-between relative">
@@ -55,7 +61,7 @@ function Navbar() {
               <>
                 <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={logout} className="cursor-pointer">
+                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
                   Cerrar sesión
                 </DropdownMenuItem>
               </>
@@ -195,7 +201,7 @@ function Navbar() {
               <>
                 <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={logout} className="cursor-pointer">
+                <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
                   Cerrar sesión
                 </DropdownMenuItem>
               </>
