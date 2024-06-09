@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
 import { Button } from '@/components/ui/button';
 import { CartContext } from '../context/CartContext';
