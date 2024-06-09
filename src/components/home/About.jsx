@@ -1,10 +1,10 @@
-import home_about from '../../assets/images/home/home_about.jpg';
+import home_about from '../../assets/images/home/home_about.webp';
 import home_quality_icon from '../../assets/images/home/home_quality_icon.png';
 import home_experience_icon from '../../assets/images/home/home_experience_icon.png';
 import home_creativity_icon from '../../assets/images/home/home_creativity_icon.png';
-import home_about_cake from '../../assets/images/home/home_about_cake.jpg';
-import home_about_cupcakes from '../../assets/images/home/home_about_cupcakes.jpg';
-import home_about_cookies from '../../assets/images/home/home_about_cookies.jpg';
+import home_about_cake from '../../assets/images/home/home_about_cake.webp';
+import home_about_cupcakes from '../../assets/images/home/home_about_cupcakes.webp';
+import home_about_cookies from '../../assets/images/home/home_about_cookies.webp';
 
 function About() {
   return (
