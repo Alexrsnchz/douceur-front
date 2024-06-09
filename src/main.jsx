@@ -2,6 +2,8 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AuthProvider } from '@/context/AuthContext.jsx';
 import { CartProvider } from '@/context/CartContext.jsx';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import './index.css';
 import Register from '@/components/auth/Register.jsx';
 import Login from '@/components/auth/Login.jsx';
@@ -17,8 +19,6 @@ import Post from '@/pages/Post.jsx';
 import Products from '@/pages/Products.jsx';
 import Product from '@/pages/Product.jsx';
 import PaymentForm from '@/components/payment/PaymentForm.jsx';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
 
 const stripePromise = loadStripe('pk_test_51PGGtYKaxJioiza5FXxFrIEPjdKl5gpkMcsYIDZfyInMy5BhxLidCxuxoUu4yMlrIlqakltvWfzgukKdLFF7mi8k00vG9kbsjs');
 
