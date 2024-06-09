@@ -195,9 +195,6 @@ function Navbar() {
               <>
                 <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <Link to="/perfil">Perfil</Link>
-                </DropdownMenuItem>
                 <DropdownMenuItem onClick={logout} className="cursor-pointer">
                   Cerrar sesión
                 </DropdownMenuItem>

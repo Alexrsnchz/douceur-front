@@ -6,7 +6,7 @@ import axios from 'axios';
 import Navbar from '@/components/misc/Navbar.jsx';
 import Footer from '@/components/misc/Footer.jsx';
 import like_icon from '@/assets/images/products/like_icon.svg';
-//import AuthContext from '@/context/AuthContext';
+import AuthContext from '@/context/AuthContext';
 
 function Product() {
   const apiUrl = import.meta.env.VITE_REACT_APP_DOUCEUR_API;
@@ -15,7 +15,7 @@ function Product() {
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
   const { addToCart } = useContext(CartContext);
-  //const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   //const navigate = useNavigate();
 
   useEffect(() => {
