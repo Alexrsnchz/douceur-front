@@ -13,11 +13,12 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('token');
-
+    
     await axios.get(`${apiUrl}/logout`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     });
+
+    localStorage.removeItem('token');
   };
 
   useEffect(() => {
