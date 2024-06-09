@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import home_background from '../../assets/images/home/home_background.jpg';
+import home_background from '../../assets/images/home/home_background.webp';
 
 function Header() {
   return (
