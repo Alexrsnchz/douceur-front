@@ -15,7 +15,9 @@ export const AuthProvider = ({ children }) => {
     setIsLoggedIn(false);
     localStorage.removeItem('token');
 
-    await axios.get(`${apiUrl}/logout`);
+    await axios.get(`${apiUrl}/logout`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    });
   };
 
   useEffect(() => {
