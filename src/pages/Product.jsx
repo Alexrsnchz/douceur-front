@@ -15,7 +15,7 @@ function Product() {
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
   const { addToCart } = useContext(CartContext);
-  const { isLoggedIn } = useContext(AuthContext);
+  //const { isLoggedIn } = useContext(AuthContext);
   //const navigate = useNavigate();
 
   useEffect(() => {
