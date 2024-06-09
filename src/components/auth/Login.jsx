@@ -51,7 +51,6 @@ function Login() {
       setError({});
       try {
         const response = await axios.post(`${apiUrl}/login`, loginForm);
-        console.log('Sesión iniciada correctamente:', response.data);
 
         const { token, data: user } = response.data;
         localStorage.setItem('token', token);

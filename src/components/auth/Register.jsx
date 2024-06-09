@@ -71,7 +71,6 @@ function Register() {
       setError({});
       try {
         const response = await axios.post(`${apiUrl}/register`, registerForm);
-        console.log('Usuario registrado correctamente:', response.data);
 
         const { token, data: user } = response.data;
         localStorage.setItem('token', token);
