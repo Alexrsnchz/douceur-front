@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     setIsLoggedIn(false);
     localStorage.removeItem('token');
 
-    await axios.post(`${apiUrl}/logout`);
+    await axios.get(`${apiUrl}/logout`);
   };
 
   useEffect(() => {
