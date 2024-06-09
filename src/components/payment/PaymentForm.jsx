@@ -5,6 +5,7 @@ import { CartContext } from '@/context/CartContext';
 import axios from 'axios';
 import footer_logo from '@/assets/images/logos/footer_logo.png';
 import Navbar from '../misc/Navbar';
+import AuthContext from '@/context/AuthContext';
 
 const PaymentForm = () => {
   const apiUrl = import.meta.env.VITE_REACT_APP_DOUCEUR_API;
@@ -15,11 +16,18 @@ const PaymentForm = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const { isLoggedIn } = useContext(AuthContext);
   const { clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!isLoggedIn) {
+      navigate('/login');
+      return;
+    }
+
     setIsProcessing(true);
     setError(null);
 
@@ -42,19 +50,17 @@ const PaymentForm = () => {
         },
       });
 
-      if (result.error) {
+      if (result.paymentIntent.status === 'succeeded') {
+        setSuccess(true);
+        clearCart();
+        setTimeout(function () {
+          navigate('/');
+        }, 3000);
+      } else if (result.error) {
         setError(result.error.message);
-      } else {
-        if (result.paymentIntent.status === 'succeeded') {
-          setSuccess(true);
-          clearCart();
-          setTimeout(function () {
-            navigate('/');
-          }, 3000);
-        }
       }
     } catch (error) {
-      setError('Failed to create payment intent.');
+      setError('Pago rechazado.');
     }
 
     setIsProcessing(false);
