@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import ProductCard from '@/components/products/ProductCard';
-import CategoryFilter from '@/components/products/CategoryFilter';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import axios from 'axios';
 import Navbar from '@/components/misc/Navbar.jsx';
 import Footer from '@/components/misc/Footer.jsx';
+import ProductCard from '@/components/products/ProductCard';
+import CategoryFilter from '@/components/products/CategoryFilter';
 
 const Products = () => {
   const apiUrl = import.meta.env.VITE_REACT_APP_DOUCEUR_API;
@@ -14,8 +14,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        console.log(apiUrl);
-        const response = await axios.get(`${apiUrl}/api/products`);
+        const response = await axios.get(`${apiUrl}/products`);
         setProducts(response.data);
       } catch (error) {
         console.error('Error al obtener los productos:', error);
