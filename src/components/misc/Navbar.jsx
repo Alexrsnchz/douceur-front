@@ -35,7 +35,9 @@ function Navbar() {
   return (
     <nav className="bg-white-50 p-4 flex items-center justify-between relative">
       <div className="flex items-center space-x-4 sm:ml-1 md:ml-6">
-        <img src={navbar_logo} alt="Douceur navbar logo" className="h-10" />
+        <Link to='/'>
+          <img src={navbar_logo} alt="Douceur navbar logo" className="h-10" />
+        </Link>
       </div>
 
       <div className="lg:hidden flex items-center sm:space-x-1 md:space-x-4">
