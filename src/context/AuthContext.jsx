@@ -6,7 +6,6 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const apiUrl = import.meta.env.VITE_REACT_APP_DOUCEUR_API;
-  const navigate = useNavigate();
   const [auth, setAuth] = useState({
     token: localStorage.getItem('token') || null,
     user: null,
@@ -14,6 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
 
   const logout = async () => {
+    const navigate = useNavigate();
     setIsLoggedIn(false);
     localStorage.removeItem('token');
 
