@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
 import { Button } from '@/components/ui/button';
 import { CartContext } from '../context/CartContext';
@@ -15,8 +15,8 @@ function Product() {
   const [loading, setLoading] = useState(true);
   const [liked, setLiked] = useState(false);
   const { addToCart } = useContext(CartContext);
-  //const { isLoggedIn } = useContext(AuthContext);
-  //const navigate = useNavigate();
+  const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -39,6 +39,10 @@ function Product() {
   }, [id]);
 
   const handleLike = async () => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+
     try {
       await axios.post(`${apiUrl}/products/${id}/like`, {}, {
         headers: {
@@ -52,6 +56,10 @@ function Product() {
   };
 
   const handleUnlike = async () => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+    
     try {
       await axios.post(`${apiUrl}/products/${id}/unlike`, {}, {
         headers: {
