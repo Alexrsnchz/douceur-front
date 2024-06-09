@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState, useContext } from 'react';
-import axios from 'axios';
 import { Button } from '@/components/ui/button';
+import { CartContext } from '../context/CartContext';
+import axios from 'axios';
 import Navbar from '@/components/misc/Navbar.jsx';
 import Footer from '@/components/misc/Footer.jsx';
 import like_icon from '@/assets/images/products/like_icon.svg';
-import { CartContext } from '../context/CartContext';
 
 function Product() {
   const apiUrl = import.meta.env.VITE_REACT_APP_DOUCEUR_API;
