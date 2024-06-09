@@ -138,7 +138,7 @@ function Product() {
               >
                 <img src={like_icon} alt="Like Icon" className="h-5 w-5 mr-1" />
                 <span className="font-semibold text-pink-500">
-                  {liked ? 'Unlike' : 'Like'}
+                  {liked ? 'Quitar like' : 'Like'}
                 </span>
               </Button>
             </div>
