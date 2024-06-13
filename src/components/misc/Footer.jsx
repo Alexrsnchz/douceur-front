@@ -163,7 +163,9 @@ function Footer() {
       <div className="py-4 border-t border-gray-300 font-semibold">
         <div className="container mx-auto flex flex-col md:flex-row justify-center items-center gap-10">
           <p className="mb-4 md:mb-0 text-center">
-            &copy; 2024 Douceur. Todos los derechos reservados.
+            <Link to='https://creativecommons.org/licenses/by/4.0/' className="hover:text-[#d4a373]">
+              &copy; 2024 Douceur. Todos los derechos reservados.
+            </Link>
           </p>
           <p className="text-center">
             <Link to="/privacidad" 
