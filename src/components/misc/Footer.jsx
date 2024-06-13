@@ -162,15 +162,13 @@ function Footer() {
       </div>
       <div className="py-4 border-t border-gray-300 font-semibold">
         <div className="container mx-auto flex flex-col md:flex-row justify-center items-center gap-10">
-          <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" className="mb-4 md:mb-0 text-center">
-            <Link property="dct:title" rel="cc:attributionURL" to="https://douceur-front.vercel.app/">
-              Douceur
-            </Link> by <span property="cc:attributionName">Douceur</span> is licensed under 
-            <Link to="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
-              <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="" />
-              <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="" />
+          <p className="mb-4 md:mb-0 text-center">
+            <Link to='https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1' className="hover:text-[#d4a373]">
+              &copy; 2024 Douceur. Todos los derechos reservados.
             </Link>
           </p>
+
+
           <p className="text-center">
             <Link to="/privacidad" 
               className="mr-2 hover:text-[#d4a373]" 
