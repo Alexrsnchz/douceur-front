@@ -5,7 +5,7 @@ import { CartContext } from '@/context/CartContext';
 import axios from 'axios';
 import footer_logo from '@/assets/images/logos/footer_logo.png';
 import Navbar from '../misc/Navbar';
-import AuthContext from '@/context/AuthContext';
+//import AuthContext from '@/context/AuthContext';
 
 const PaymentForm = () => {
   const apiUrl = import.meta.env.VITE_REACT_APP_DOUCEUR_API;
@@ -16,17 +16,17 @@ const PaymentForm = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
-  const { isLoggedIn } = useContext(AuthContext);
+  //const { isLoggedIn } = useContext(AuthContext);
   const { clearCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!isLoggedIn) {
-      navigate('/login');
-      return;
-    }
+    // if (!isLoggedIn) {
+    //   navigate('/login');
+    //   return;
+    // }
 
     setIsProcessing(true);
     setError(null);
@@ -38,7 +38,7 @@ const PaymentForm = () => {
           amount: totalAmount,
         },
         {
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
+          headers: { 'Content-Type': 'application/json' },
         },
       );
 
