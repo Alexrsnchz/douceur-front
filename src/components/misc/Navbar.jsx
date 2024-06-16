@@ -56,7 +56,7 @@ function Navbar() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link to="/register" className="font-semibold">
+                  <Link to="/registro" className="font-semibold">
                     Registrarme
                   </Link>
                 </DropdownMenuItem>
@@ -196,7 +196,7 @@ function Navbar() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link to="/register" className="font-semibold">
+                  <Link to="/registro" className="font-semibold">
                     Registrarme
                   </Link>
                 </DropdownMenuItem>
