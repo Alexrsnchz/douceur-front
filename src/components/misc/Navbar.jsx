@@ -50,11 +50,15 @@ function Navbar() {
           <DropdownMenuContent>
             {!isLoggedIn ? (
               <>
-                <DropdownMenuItem as={NavLink} to="/login">
-                  Iniciar sesión
+                <DropdownMenuItem>
+                  <Link to="/login" className="font-semibold">
+                    Iniciar sesión
+                  </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem as={NavLink} to="/register">
-                  Registrarme
+                <DropdownMenuItem>
+                  <Link to="/register" className="font-semibold">
+                    Registrarme
+                  </Link>
                 </DropdownMenuItem>
               </>
             ) : (
@@ -192,7 +196,7 @@ function Navbar() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link to="/registro" className="font-semibold">
+                  <Link to="/register" className="font-semibold">
                     Registrarme
                   </Link>
                 </DropdownMenuItem>
